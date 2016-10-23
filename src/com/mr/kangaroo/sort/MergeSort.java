@@ -1,14 +1,21 @@
 package com.mr.kangaroo.sort;
 
+import com.mr.kangaroo.DataSource.DataSource;
+
 import java.util.Arrays;
 
 /**
  * Created by mr-kangaroo on 16/10/23.
+ *
+ * 归并排序,合并排序;
+ * 优点:稳定性;
+ * 缺点:空间;
+ *
  */
 public class MergeSort {
 
-
     public static void mergerSort(int[] src){
+        System.out.println("--src--" + Arrays.toString(src));
         if(src.length <= 0) return ;
         if(src.length > 1){
             int mid = src.length / 2;
@@ -19,6 +26,7 @@ public class MergeSort {
             mergerSort(tmpA);
             mergerSort(tmpB);
             merge(tmpA,tmpB,src);
+            System.out.println("--src--" + Arrays.toString(src));
         }
     }
 
@@ -43,8 +51,8 @@ public class MergeSort {
                 break;
             }
         }
-
     }
+
     public static void main(String[] args) {
         mergerSort(DataSource.dataSource);
     }
