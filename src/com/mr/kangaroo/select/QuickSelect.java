@@ -13,9 +13,8 @@ import com.mr.kangaroo.DataSource.DataSource;
 public class QuickSelect {
 
     public static int quickSelect(int[] src ,int k){
+    	//使用划分算法找出中轴,判断中轴与顺序统计量的位置,递归的操作;
         int s = Lomuto.lomutoPartiton(src);
-        int left = 0 ;
-        int right = src.length - 1;
         if(s ==  k - 1){
             return src[s];
         }else if(s > k -1){
