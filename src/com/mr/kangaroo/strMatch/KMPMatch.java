@@ -50,7 +50,22 @@ public class KMPMatch {
 	
 	public static void kmpMatcher(String sourceString){
 		int[] next = partitionMatchTable(patternString);
-		System.out.println(Arrays.toString(next));
+		int i = 0 , j = 0;
+		String[] source = sourceString.split("");
+		String[] pattern = patternString.split("");
+		int pos = 0;
+		while(i < sourceString.length() && j < patternString.length()){
+			if(source[i].equals(pattern[j]) || j == 0){
+				++i;
+				++j;
+			}else{
+				j = next[j];
+			}
+		}
+		if(j > patternString.length()){
+			pos = i - patternString.length() + 1;
+		}
+		System.out.println(pos);
 	}
 	
 	public static void main(String[] args) {
