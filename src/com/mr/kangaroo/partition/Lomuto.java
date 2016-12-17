@@ -1,8 +1,8 @@
 package com.mr.kangaroo.partition;
 
-import com.mr.kangaroo.DataSource.DataSource;
-
 import java.util.Arrays;
+
+import com.mr.kangaroo.DataSource.DataSource;
 
 /**
  * Created by mr-kangaroo on 16/10/23.

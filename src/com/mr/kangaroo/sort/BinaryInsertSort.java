@@ -1,8 +1,8 @@
 package com.mr.kangaroo.sort;
 
-import com.mr.kangaroo.DataSource.DataSource;
-
 import java.util.Arrays;
+
+import com.mr.kangaroo.DataSource.DataSource;
 
 /**
  *

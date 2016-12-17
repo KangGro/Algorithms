@@ -1,7 +1,5 @@
 package com.mr.kangaroo.strMatch;
 
-import java.util.Arrays;
-
 /**
  * 串匹配算法;
  * 

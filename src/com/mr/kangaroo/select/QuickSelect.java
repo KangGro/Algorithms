@@ -1,7 +1,7 @@
 package com.mr.kangaroo.select;
 
-import com.mr.kangaroo.partition.Lomuto;
 import com.mr.kangaroo.DataSource.DataSource;
+import com.mr.kangaroo.partition.Lomuto;
 
 /**
  * Created by mr-kangaroo on 16/10/23.
