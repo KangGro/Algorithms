@@ -8,9 +8,10 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.collect.ImmutableList;
+import com.mr.kangaroo.utils.MD5;
 
 /**
  * 一致性Hash算法
@@ -61,6 +62,9 @@ public class ConsistanceHash {
      *  http://murmurhash.googlepages.com/ 
      */  
     private static long hash(String key) {  
+    	//信息摘要
+    	key = MD5.getSecurityKey(key);
+    	System.out.println("====" + key);
         ByteBuffer buf = ByteBuffer.wrap(key.getBytes());  
         int seed = 0x1234ABCD;  
           
@@ -107,7 +111,4 @@ public class ConsistanceHash {
 		getHashIndex("uhjjgf");
 		getHashIndex("okjhjjhh");
 	}
-	
-	
-	
 }
