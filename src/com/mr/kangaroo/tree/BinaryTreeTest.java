@@ -24,5 +24,8 @@ public class BinaryTreeTest {
 		System.out.println(BTree.getTreeDepth(A));
 //		BTree.preOrderTraverse(A);
 		BTree.poseOrderTraverse(A);
+		BTree.levelTraverse(A);
+		System.out.println(BTree.getTreeDepth(A));
+		BTree.preOrderTraverse(A);
 	}
 }
