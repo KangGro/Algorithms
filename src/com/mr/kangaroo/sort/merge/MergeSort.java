@@ -36,6 +36,7 @@ public class MergeSort {
         sort(srcArr, destArr, low, mid);
         sort(srcArr, destArr, mid + 1, high);
         merge(srcArr, destArr, low, mid, high);
+
     }
 
     public static void mergeSort(int[] arr) {
