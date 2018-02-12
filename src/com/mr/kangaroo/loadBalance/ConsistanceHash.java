@@ -2,7 +2,6 @@ package com.mr.kangaroo.loadBalance;
 
 import com.google.common.collect.ImmutableList;
 import com.mr.kangaroo.utils.MD5;
-import org.apache.commons.lang3.StringUtils;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -32,7 +31,7 @@ public class ConsistanceHash {
     }
 
     public static int getHashIndex(String key) {
-        if (StringUtils.isNotBlank(key)) {
+        if (key == null) {
             long hashCode = hash(key);
             SortedMap<Long, String> tmp = hashMap.tailMap(hashCode);
             //查找对应位置
