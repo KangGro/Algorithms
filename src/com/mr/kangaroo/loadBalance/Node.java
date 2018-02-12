@@ -1,17 +1,17 @@
 package com.mr.kangaroo.loadBalance;
 
 public class Node {
-	String name ;
+    String name;
 
-	public Node(String name) {
-		this.name = name;
-	}
+    public Node(String name) {
+        this.name = name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 }

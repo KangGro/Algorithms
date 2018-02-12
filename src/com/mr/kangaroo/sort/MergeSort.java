@@ -6,48 +6,47 @@ import com.mr.kangaroo.DataSource.DataSource;
 
 /**
  * Created by mr-kangaroo on 16/10/23.
- *
+ * <p>
  * 归并排序,合并排序;
  * 优点:稳定性;
  * 缺点:空间;
- *
  */
 public class MergeSort {
 
-    public static void mergerSort(int[] src){
+    public static void mergerSort(int[] src) {
         System.out.println("--src--" + Arrays.toString(src));
-        if(src.length <= 0) return ;
-        if(src.length > 1){
+        if (src.length <= 0) return;
+        if (src.length > 1) {
             int mid = src.length / 2;
             int[] tmpA = new int[mid];
             int[] tmpB = new int[src.length - mid];
-            System.arraycopy(src,0,tmpA,0,mid);
-            System.arraycopy(src,mid,tmpB,0,src.length - mid);
+            System.arraycopy(src, 0, tmpA, 0, mid);
+            System.arraycopy(src, mid, tmpB, 0, src.length - mid);
             mergerSort(tmpA);
             mergerSort(tmpB);
-            merge(tmpA,tmpB,src);
+            merge(tmpA, tmpB, src);
             System.out.println("--src--" + Arrays.toString(src));
         }
     }
 
-    public static void merge(int[] tmpA,int[] tmpB ,int[] src){
+    public static void merge(int[] tmpA, int[] tmpB, int[] src) {
         int j = 0;
         int k = 0;
-        for (int i = 0 ;i < tmpA.length;){
-            if(tmpA[i] > tmpB[j]){
+        for (int i = 0; i < tmpA.length; ) {
+            if (tmpA[i] > tmpB[j]) {
                 src[k] = tmpB[j];
                 j = j + 1;
-            }else{
+            } else {
                 src[k] = tmpA[i];
                 i = i + 1;
             }
             k = k + 1;
-            if(i == tmpA.length){
-                System.arraycopy(tmpB,j,src,k,tmpB.length - j);
+            if (i == tmpA.length) {
+                System.arraycopy(tmpB, j, src, k, tmpB.length - j);
                 break;
             }
-            if(j == tmpB.length){
-                System.arraycopy(tmpA,i,src,k,tmpA.length - i);
+            if (j == tmpB.length) {
+                System.arraycopy(tmpA, i, src, k, tmpA.length - i);
                 break;
             }
         }
