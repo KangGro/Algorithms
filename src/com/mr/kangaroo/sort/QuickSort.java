@@ -48,34 +48,28 @@ public class QuickSort {
         int p = arr[from];
         int low = from + 1;
         int high = to;
-        while(true){
-            while(low <= to){
-                if(SortUtil.less(arr[low], p)){
-                    low++;
-                }else{
+        while(low < high){
+            while(arr[low] < p){
+                low++;
+                if(low >= to){
                     break;
                 }
-//                if(low == to){
-//                    return high;
-//                }
             }
-            while(from <= high){
-                if(SortUtil.less(p, arr[high])){
-                    high--;
-                }else{
-                    break;
-                }
-//                if(from == high){
-//                    return low;
-//                }
-            }
-            if(low != high){
-                SortUtil.exch(arr, low ,high);
-            }else{
-                return low;
-            }
+          while(arr[high] > p){
+              high--;
+              if(high <= from){
+                  break;
+              }
+          }
+          if(low < high){
+                SortUtil.exch(arr,low, high);
+          }
         }
 
+        System.out.println(low + " , " + high);
+
+        SortUtil.exch(arr, from, high);
+        return high;
     }
 
 
