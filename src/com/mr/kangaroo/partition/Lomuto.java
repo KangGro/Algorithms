@@ -1,7 +1,5 @@
 package com.mr.kangaroo.partition;
 
-import java.util.Arrays;
-
 import com.mr.kangaroo.DataSource.DataSource;
 
 /**
@@ -14,7 +12,6 @@ import com.mr.kangaroo.DataSource.DataSource;
 public class Lomuto {
 
     public static int lomutoPartiton(int[] src) {
-//        System.out.println("--src--" + Arrays.toString(src));
         int p = src[0];
         int s = 0;
         for (int i = 1; i < src.length; i++) {
@@ -23,15 +20,11 @@ public class Lomuto {
                 int tmp = src[s];
                 src[s] = src[i];
                 src[i] = tmp;
-//                System.out.println("--src--" + Arrays.toString(src));
             }
         }
-
         int tmp = src[0];
         src[0] = src[s];
         src[s] = tmp;
-
-        System.out.println("--src--" + Arrays.toString(src));
         return s;
     }
 
