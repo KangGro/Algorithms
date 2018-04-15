@@ -5,28 +5,40 @@ import java.io.*;
 /**
  * @author daisy
  * @desc 文件及文件夹拷贝
+ *
+ * 目录的遍历
+ * 树的遍历
+ * 二叉树的遍历
+ *
+ *
+ *
  * @create 2018/4/15
  */
 public class FileCopy {
-    public static void copyDirectory(String path, String destPath) throws IOException {
-        File file = new File(path);
+    public static void copyDirectory(String from,String to) throws IOException {
+        File file = new File(from);
         if (!file.exists()) {
             return;
         }
-        String newPath = destPath;
+        String dirPath = file.getAbsolutePath();
+        dirPath = dirPath.replace("/Users/mr-kangaroo/test/dir1", to);
         if (file.isDirectory()) {
-            newPath  = newPath + "Copy";
-            File newFile = new File(newPath);
-            if(!newFile.exists()){
-                newFile.mkdirs();
-            }
             File[] files = file.listFiles();
+            if(files.length == 0){
+                File dir = new File(dirPath);
+                if (!dir.exists()) {
+                    dir.mkdirs();
+                }
+            }
             for (File tmp : files) {
-                String tmpAbsolutePath = tmp.getAbsolutePath();
-                copyDirectory(tmpAbsolutePath, newPath);
+                copyDirectory(tmp.getAbsolutePath(), to);
             }
         } else {
-            copyFile(file, newPath);
+            File dir = new File(dirPath);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            copyFile(file, dirPath);
         }
     }
 
@@ -34,12 +46,12 @@ public class FileCopy {
         String newFileName;
         String fileName = file.getName();
         if (fileName.indexOf(".") > 0) {
-            newFileName = fileName.substring(0, fileName.lastIndexOf(".")) + "Copy" + fileName.substring(fileName.lastIndexOf("."));
+            String suffix = fileName.substring(fileName.lastIndexOf("."));
+            newFileName = fileName.substring(fileName.lastIndexOf("/") + 1, fileName.lastIndexOf(".")) + "Copy" + suffix;
         } else {
             newFileName = fileName + "Copy";
         }
         File newFile = new File(filePath + "/" + newFileName);
-        System.out.println(newFile);
         BufferedReader reader = new BufferedReader(new FileReader(file));
         char[] buffer = new char[1024];
         BufferedWriter writer = new BufferedWriter(new FileWriter(newFile));
@@ -53,6 +65,6 @@ public class FileCopy {
     }
 
     public static void main(String[] args) throws IOException {
-        copyDirectory("/Users/mr-kangaroo/work/axure", "/Users/mr-kangaroo/work/axure");
+        copyDirectory("/Users/mr-kangaroo/test/dir1", "/Users/mr-kangaroo/test/dir1Copy");
     }
 }
