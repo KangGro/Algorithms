@@ -5,5 +5,11 @@ package com.mr.kangaroo.demonstrate.polymorphic;
  * @desc 抽象类多态
  * @create 2018/5/7
  */
-public class Base {
+public abstract class Base {
+
+    private void privateMethod(){
+        System.out.println("==privateMethod===");
+    }
+
+    public abstract void absMethod();
 }

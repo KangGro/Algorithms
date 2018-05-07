@@ -5,5 +5,9 @@ package com.mr.kangaroo.demonstrate.polymorphic;
  * @desc
  * @create 2018/5/7
  */
-public class A {
+public class A extends Base{
+    @Override
+    public void absMethod() {
+        System.out.println("===A.absMethod()===");
+    }
 }
