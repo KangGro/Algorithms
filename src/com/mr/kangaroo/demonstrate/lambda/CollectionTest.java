@@ -22,9 +22,9 @@ public class CollectionTest {
 
 
     public static void main(String[] args) {
-        Map<Integer, List<Student>> studentMap = studentList.stream().collect(Collectors.groupingBy(Student :: getTeacherId));
-        studentMap.forEach((k,v) -> {
-            System.out.println(k + " : " + Arrays.toString(v.toArray()));
-        });
+//        Map<Integer, List<Student>> studentMap = studentList.stream().collect(Collectors.groupingBy(Student :: getTeacherId));
+//        studentMap.forEach((k,v) -> {
+//            System.out.println(k + " : " + Arrays.toString(v.toArray()));
+//        });
     }
 }
