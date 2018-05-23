@@ -2,9 +2,8 @@ package com.mr.kangaroo.demonstrate.lambda;
 
 import com.google.common.collect.Lists;
 
-import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -15,16 +14,16 @@ import java.util.stream.Collectors;
 public class CollectionTest {
     private static List<Student> studentList = Lists.newArrayList();
     static {
-        studentList.add(new Student(1, "a" , 2));
-        studentList.add(new Student(2, "b" , 1));
-        studentList.add(new Student(3, "c" , 2));
+        studentList.add(new Student(1, "a" , 2, 1526992963000L));
+        studentList.add(new Student(2, "b" , 1, 1526912959000L));
+        studentList.add(new Student(3, "c" , 2,1526994952000L));
     }
 
 
     public static void main(String[] args) {
-//        Map<Integer, List<Student>> studentMap = studentList.stream().collect(Collectors.groupingBy(Student :: getTeacherId));
-//        studentMap.forEach((k,v) -> {
-//            System.out.println(k + " : " + Arrays.toString(v.toArray()));
-//        });
+        List<Student> result = studentList.stream().sorted(Comparator.comparing(Student::getUpdateTime).reversed()).collect(Collectors.toList());
+        for (Student student : result) {
+            System.out.println(student.getUpdateTime().getTime());
+        }
     }
 }

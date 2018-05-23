@@ -1,5 +1,7 @@
 package com.mr.kangaroo.demonstrate.lambda;
 
+import java.util.Date;
+
 /**
  * @author daisy
  * @desc
@@ -10,7 +12,7 @@ public class Student {
     private int id;
     private String name;
     private int teacherId;
-
+    private Date updateTime;
 
     public int getId() {
         return id;
@@ -39,10 +41,20 @@ public class Student {
         return this;
     }
 
-    public Student(int id, String name, int teacherId) {
+    public Student(int id, String name, int teacherId, Long time) {
         this.id = id;
         this.name = name;
         this.teacherId = teacherId;
+        this.updateTime = new Date(time);
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public Student setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+        return this;
     }
 
     @Override
